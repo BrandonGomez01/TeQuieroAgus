@@ -1,0 +1,58 @@
+ 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Diaporama</title>
+  <style>
+    #diaporama {
+      position: relative;
+      width: 800px;
+      height: 600px;
+      margin: 0 auto;
+    }
+    #diaporama img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+    #diaporama img.active {
+      opacity: 1;
+    }
+    #diaporama .texto {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 24px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="diaporama">
+    <img src=" https://drive.google.com/file/d/1pMUdFwFeQgnMJieDaHrSrH4V1ztvNzrx/view?usp=drivesdk " alt="Foto 1" class="active">
+    <div class="Querida Agus no te das la idea de lo importante que sos, con tu hermosa sonrisa iluminas la vida de todas las persona, sos la luz en la oscuridad">Texto para la foto 1</div>
+    <img src=" https://drive.google.com/file/d/1p7XoNa4fYCuU8S9xKhSdWPvhS9Y7ZZIg/view?usp=drivesdk " alt="Foto 2">
+    <div class="Agustina tus ojos son hipnotizantes, me dan muchas ganas de darte muchos besos en tu hermosa cara, sos la perfeccion en persona, tu humor, tu caracter me encanta">Texto para la foto 2</div>
+    <img src=" https://drive.google.com/file/d/1p8Ho5thKGXI_2XRD5kVyAV_Pk4p3IUj8/view?usp=drivesdk " alt="Foto 3">
+    <div class="Una futura profesional de la salud que va a salvar y hacer felices a muchas personas, nunca cambies, nunca dejes que nadie te cambie, te quiero mucho 💕💕">Texto para la foto 3</div>
+  </div>
+  <iframe width="0" height="0" src=" https://youtu.be/972fadykbJA?si=aF3xqshqALJVb0Co " frameborder="0" allowfullscreen></iframe>
+  <script>
+    var imagenes = document.querySelectorAll('#diaporama img');
+    var texto = document.querySelectorAll('#diaporama .texto');
+    var tiempo = 5000; 
+    var actual = 0;
+    setInterval(function() {
+      imagenes[actual].classList.remove('active');
+      texto[actual].style.opacity = 0;
+      actual = (actual + 1) % imagenes.length;
+      imagenes[actual].classList.add('active');
+      texto[actual].style.opacity = 1;
+    }, tiempo);
+  </script>
+</body>
+</html>
